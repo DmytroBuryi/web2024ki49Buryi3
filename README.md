@@ -11,7 +11,7 @@ The objective of this course is to develop a contemporary, interactive business 
 ### Student
 | Number | Student | Fraud |
 | ------ | ------- | ----- |
-| 18 | Dmytro Buryi | fishing |
+| 3 | Dmytro Buryi | fishing |
 
 ## Project details
 Our project employs a modern web development stack featuring PHP, JavaScript, HTML, CSS, and MySQL. The goal is to deliver a seamless user experience while prioritizing scalability, security, and maintainability.
