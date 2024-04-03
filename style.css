@@ -1,0 +1,118 @@
+body {
+    padding: 50px;
+    background-color: #222; 
+    color: #fff; 
+    font-family: Arial, sans-serif; 
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+    background-color: #333; 
+    border-radius: 10px; 
+}
+
+.error-box {
+    border-radius: 10px;
+    background-color: #ff704d;
+    margin-bottom: 10px;
+    padding: 15px; 
+    border: 1px solid #f44336; 
+}
+
+.error-box p {
+    margin: 0; 
+    font-size: 16px;
+}
+
+.main-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.main-page-block {
+    width: 40%; 
+    display: flex;
+    flex-direction: column; 
+    margin-top: 50px;
+    border-radius: 10px;
+    background-color: #444; 
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); 
+}
+
+.main-page-info-block,
+.main-page-input-block {
+    padding: 20px; 
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    margin: 0;
+}
+
+.edit-block {
+    margin-bottom: 20px; 
+}
+
+.edit-block label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+.edit-block input,
+.edit-block textarea {
+    width: 100%; 
+    padding: 8px;
+    background-color: #555; 
+    color: #fff;
+    border: 1px solid #777; 
+    border-radius: 5px;
+}
+
+.update-btn button {
+    width: 100%; 
+    padding: 10px; 
+    border: none;
+    background-color: #007bff; 
+    color: #fff; 
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s; 
+}
+
+
+.update-btn button:hover {
+    background-color: #0056b3; 
+}
+
+#errors {
+    display: none; 
+}
+
+
+.logout-btn {
+    position: absolute;
+    top: 20px; /* Adjust this value to your preference */
+    right: 20px; /* Adjust this value to your preference */
+    z-index: 999; /* Ensure it stays on top of other elements */
+    /* Additional styling */
+    background-color: #ff0000; /* Red background */
+    color: #ffffff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
