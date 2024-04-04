@@ -1,0 +1,102 @@
+
+<script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("registration").addEventListener("click", function (e) {
+            e.preventDefault();
+            document.getElementById("errors").innerHTML = "";
+            let email = document.getElementById("email").value;
+            let user_name = document.getElementById("user_name").value;
+            let password = document.getElementById("password").value;
+            let repeat_password = document.getElementById("repeat_password").value;
+            let errors = [];
+    
+            if (!email || !user_name || !password || !repeat_password) {
+                errors.push("Fields cannot be empty!");
+            }
+    
+            if (password.length < 8) {
+                errors.push("Password must contain at least 8 characters!");
+            }
+    
+            if (password !== repeat_password) {
+                errors.push("Passwords do not match!");
+            }
+    
+            if (errors.length) {
+                errors.forEach(function (error) {
+                    document.getElementById("errors").innerHTML += "<div class='error-box'><p>" + error + "</p></div>";
+                });
+                document.getElementById("errors").style.display = "block";
+                return;
+            }
+    
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("successful-registration").style.display = "block";
+                    document.getElementById("main-registration-body").style.display = "none";
+                }
+            };
+            xhr.open("POST", "registration.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("email=" + email + "&password=" + password + "&user_name=" + user_name + "&repeat_password=" + repeat_password);
+        });
+    
+        document.getElementById("successful-registration").style.display = "none";
+        document.getElementById("errors").style.display = "none";
+    });
+    
+        
+    </script>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration Form</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container" id="successful-registration">
+            Successful registration <a href="login.html">Login</a>
+        </div>
+        <div class="container" id="main-registration-body">
+            <h2>Registration</h2>
+            <form action="registration.php" method="post">
+                
+                <div class="form-group">
+                    <input type="emamil" class="form-control" id="email" placeholder="Email:">
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" class="form-control" id="user_name" placeholder="User Name:">
+                </div>
+    
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Password:">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="repeat_password" placeholder="Repeat Password:">
+                </div>
+                
+                <div id="errors">
+                    
+                </div>
+                
+                <div class="form-btn">
+                    <button type="button" class="btn btn-primary" id="registration">Registration</button>
+                </div>
+            </form>
+            <div>
+            <div><p>Already Registered <a href="login.html">Login Here</a></p></div>
+          </div>
+        </div>
+        
+    </body>
+    </html>
+    
+    
